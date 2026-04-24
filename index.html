@@ -643,6 +643,7 @@ var APP_PW='V3D002793';
 var DK='qms-devices-v1';
 var IK='qms-incidents-v1';
 var GAS_KEY='qms-gas-url';
+var GAS_URL_DEFAULT='https://script.google.com/macros/s/AKfycbzUz3IPBmpEuOksDOtO_MoUraPpK5s2EtI5p0MCckPpc1fBXDoOLua2AJXTxBvFWtkV/exec';
 var currentEditId=null,currentDetailId=null,reportTargetDevId=null,editDeviceId=null;
 var linkRows=[];
 
@@ -650,7 +651,7 @@ function getDevices(){try{return JSON.parse(localStorage.getItem(DK)||'[]');}cat
 function saveDevices(d){localStorage.setItem(DK,JSON.stringify(d));}
 function getIncidents(){try{return JSON.parse(localStorage.getItem(IK)||'[]');}catch(e){return[];}}
 function saveIncidents(d){localStorage.setItem(IK,JSON.stringify(d));}
-function getGasUrl(){return localStorage.getItem(GAS_KEY)||'';}
+function getGasUrl(){return localStorage.getItem(GAS_KEY)||GAS_URL_DEFAULT;}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,5);}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
